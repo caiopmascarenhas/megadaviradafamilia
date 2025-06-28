@@ -1,153 +1,136 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quina São João</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            margin-top: 50px;
-            background-color: #f4f4f9;
-        }
-        h1 {
-            font-size: 3em;
-            color: #2c3e50;
-        }
-        h2 {
-            margin-bottom: 20px;
-            color: #34495e;
-        }
-        table {
-            width: 80%;
-            margin: 30px auto;
-            border-collapse: collapse;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: white;
-        }
-        th, td {
-            padding: 12px;
-            border: 1px solid #ddd;
-            text-align: center;
-        }
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
-        .hit {
-            color: red;
-            font-weight: bold;
-        }
-        input[type="number"], input[type="password"] {
-            width: 60px;
-            height: 45px;
-            margin: 10px;
-            text-align: center;
-            font-size: 1.2em;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        }
-        input:focus {
-            border-color: #4CAF50;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        }
-        button {
-            padding: 15px 30px;
-            font-size: 1em;
-            cursor: pointer;
-            margin-top: 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 8px;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        .hidden {
-            display: none;
-        }
-        .password-box {
-            margin-top: 40px;
-            display: inline-block;
-            padding: 40px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            background-color: white;
-        }
-        .password-input{
-            width: 300px !important;
-        }
-        #errorMessage {
-            color: red;
-            margin-top: 15px;
-            font-size: 1.1em;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quina São João</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      background-color: #f4f4f9;
+    }
+    h1 {
+      font-size: 3em;
+      color: #2c3e50;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #34495e;
+    }
+    table {
+      width: 90%;
+      margin: 30px auto;
+      border-collapse: collapse;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      background-color: white;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .hit {
+      color: red;
+      font-weight: bold;
+    }
+    input[type="number"], input[type="password"] {
+      width: 60px;
+      height: 45px;
+      margin: 10px;
+      text-align: center;
+      font-size: 1.2em;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    input:focus {
+      border-color: #4CAF50;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .hidden {
+      display: none;
+    }
+    .password-box {
+      margin-top: 40px;
+      display: inline-block;
+      padding: 40px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      background-color: white;
+    }
+    .password-input {
+      width: 300px !important;
+    }
+    #errorMessage {
+      color: red;
+      margin-top: 15px;
+      font-size: 1.1em;
+    }
+  </style>
 </head>
 <body>
-    <h1>Quina São João</h1>
+  <h1>Quina São João</h1>
 
-    <div id="passwordScreen" class="password-box">
-        <h2>Digite a senha para acessar os jogos:</h2>
-        <input type="password" id="passwordInput"  class="password-input" placeholder="Digite a senha...">
-        <br>
-        <button onclick="verificarSenha()">Entrar</button>
-        <p id="errorMessage" class="hidden">Senha incorreta ou campo vazio!</p>
-        <p id="listHiae" class="hidden">Participantes: Caio, Marcelo, Thiago, Yan, Molina</p>
-        <p id="listFriends" class="hidden">Participantes: Caio, Jessica, Isabelle Wendy, Eduardo, Ketellen, Henrique</p>
-    </div>
+  <div id="passwordScreen" class="password-box">
+    <h2>Digite a senha para acessar os jogos:</h2>
+    <input type="password" id="passwordInput" class="password-input" placeholder="Digite a senha...">
+    <br>
+    <button onclick="verificarSenha()">Entrar</button>
+    <p id="errorMessage" class="hidden">Senha incorreta ou campo vazio!</p>
+    <p id="listHiae" class="hidden">Participantes: Caio, Marcelo, Thiago, Yan, Molina</p>
+    <p id="listFriends" class="hidden">Participantes: Caio, Jessica, Isabelle Wendy, Eduardo, Ketellen, Henrique</p>
+  </div>
 
-    <div id="gameScreen" class="hidden">
-        <p>Digite seus números e confira se você acertou!</p>
-        <div>
-            <input type="number" id="num1" min="1" max="60">
-            <input type="number" id="num2" min="1" max="60">
-            <input type="number" id="num3" min="1" max="60">
-            <input type="number" id="num4" min="1" max="60">
-            <input type="number" id="num5" min="1" max="60">
-            <input type="number" id="num6" min="1" max="60">
-        </div>
-        <button onclick="verificarNumeros()">Verificar</button>
+  <div id="gameScreen" class="hidden">
+    <p>Digite seus números e confira se você acertou!</p>
+    <div id="inputsContainer"></div>
+    <button onclick="verificarNumeros()">Verificar</button>
 
-        <h2>Resultados</h2>
-        <table id="resultTable" class="hidden">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Nome</th>
-                    <th>Número 1</th>
-                    <th>Número 2</th>
-                    <th>Número 3</th>
-                    <th>Número 4</th>
-                    <th>Número 5</th>
-                    <th>Número 6</th>
-                </tr>
-            </thead>
-            <tbody id="resultBody"></tbody>
-        </table>
+    <h2>Resultados</h2>
+    <table id="resultTable" class="hidden">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nome</th>
+          ${Array.from({ length: 14 }).map((_, i) => `<th>Número ${i + 1}</th>`).join('')}
+        </tr>
+      </thead>
+      <tbody id="resultBody"></tbody>
+    </table>
 
-        <table id="mockedGamesTable">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Nome</th>
-                    <th>Número 1</th>
-                    <th>Número 2</th>
-                    <th>Número 3</th>
-                    <th>Número 4</th>
-                    <th>Número 5</th>
-                    <th>Número 6</th>
-                </tr>
-            </thead>
-            <tbody id="mockedGamesBody"></tbody>
-        </table>
-    </div>
+    <table id="mockedGamesTable">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nome</th>
+          ${Array.from({ length: 14 }).map((_, i) => `<th>Número ${i + 1}</th>`).join('')}
+        </tr>
+      </thead>
+      <tbody id="mockedGamesBody"></tbody>
+    </table>
+  </div>
 
-    <script>
-        const jogosGloria = [
+  <script>
+const jogosGloria = [
             { id: 1, name: "Jogo 1", numbers: [0, 16, 21, 30, 34, 63] },
   { id: 2, name: "Jogo 2", numbers: [25, 30, 33, 50, 54, 55, 77] },
   { id: 3, name: "Jogo 3", numbers: [19, 20, 21, 37, 42, 57, 68] },
@@ -185,7 +168,7 @@
   { id: 35, name: "Jogo 35", numbers: [12, 24, 35, 36, 53] },
         ];
 
-        const jogosEinstein = [
+      const jogosEinstein = [
             { id: 1, name: "Jogo 1", numbers: [10, 15, 26, 43, 77] },
   { id: 2, name: "Jogo 2", numbers: [14, 15, 44, 74, 79] },
   { id: 3, name: "Jogo 3", numbers: [26, 33, 59, 61, 69] },
@@ -247,121 +230,122 @@
   { id: 59, name: "Jogo 59", numbers: [5, 6, 53, 66, 80] },
   { id: 60, name: "Jogo 60", numbers: [14, 31, 46, 51, 52] },
         ];
+    const jogosFriends = []; // Se quiser, preencha
 
-        const jogosFriends = [
-        { id: 1, name: "Benção 1", numbers: [8, 10, 12, 22, 31, 47] },
-        { id: 2, name: "Benção 2", numbers: [5, 21, 25, 41, 49, 52] },
-        { id: 3, name: "Benção 3", numbers: [16, 18, 22, 33, 40, 44] },
-        { id: 4, name: "Benção 4", numbers: [1, 4, 22, 28, 45, 47] },
-        { id: 5, name: "Benção 5", numbers: [2, 5, 7, 19, 33, 34] },
-        { id: 6, name: "Benção 6", numbers: [1, 20, 29, 31, 35, 54] },
-        { id: 7, name: "Benção 7", numbers: [4, 17, 22, 41, 43, 54] },
-        { id: 8, name: "Benção 8", numbers: [2, 12, 24, 27, 44, 52] },
-        { id: 9, name: "Benção 9", numbers: [2, 6, 19, 25, 38, 44] },
-        { id: 10, name: "Benção 10", numbers: [5, 7, 14, 19, 24, 41] },
-        { id: 11, name: "Benção 11", numbers: [8, 16, 33, 34, 50, 55] },
-        { id: 12, name: "Benção 12", numbers: [2, 7, 22, 32, 47, 59] }
-        ]
+    let jogosAtuais = [];
 
-        let jogosAtuais = [];
+    // Criar os 14 inputs
+    const inputsContainer = document.getElementById("inputsContainer");
+    for (let i = 1; i <= 14; i++) {
+      const input = document.createElement("input");
+      input.type = "number";
+      input.id = `num${i}`;
+      input.min = 1;
+      input.max = 80;
+      inputsContainer.appendChild(input);
+    }
 
-        function verificarSenha() {
-            const senha = document.getElementById("passwordInput").value;
-            const errorMessage = document.getElementById("errorMessage");
-            const listHiae = document.getElementById("listHiae");
-            const listFriends = document.getElementById("listFriends");
-            const inputs = document.querySelectorAll("#gameScreen input[type='number']");
-            const passwordInput = document.getElementById("passwordInput");
+    function verificarSenha() {
+      const senha = document.getElementById("passwordInput").value;
+      const errorMessage = document.getElementById("errorMessage");
+      const listHiae = document.getElementById("listHiae");
+      const listFriends = document.getElementById("listFriends");
 
-            resultBody.innerHTML = '';
-            resultTable.classList.add("hidden");
+      document.getElementById("resultBody").innerHTML = '';
+      document.getElementById("resultTable").classList.add("hidden");
 
-            inputs.forEach(input => {
-                input.value = '';
-            });
+      document.querySelectorAll("#inputsContainer input").forEach(input => input.value = '');
 
-            passwordInput.value = '';
+      if (senha === "familia") {
+        jogosAtuais = jogosGloria;
+        errorMessage.classList.add("hidden");
+        listHiae.classList.add("hidden");
+        listFriends.classList.add("hidden");
+      } else if (senha === "core") {
+        jogosAtuais = jogosEinstein;
+        errorMessage.classList.add("hidden");
+        listHiae.classList.remove("hidden");
+        listFriends.classList.add("hidden");
+      } else if (senha === "friends") {
+        jogosAtuais = jogosFriends;
+        errorMessage.classList.add("hidden");
+        listHiae.classList.add("hidden");
+        listFriends.classList.remove("hidden");
+      } else {
+        errorMessage.classList.remove("hidden");
+        return;
+      }
 
-            if (senha === "familia") {
-                jogosAtuais = jogosGloria;
-                errorMessage.classList.add("hidden");
-                listHiae.classList.add("hidden");
-                listFriends.classList.add('hidden')
-            } else if (senha === "core") {
-                jogosAtuais = jogosEinstein;
-                errorMessage.classList.add("hidden");
-                listHiae.classList.remove("hidden");
-                listFriends.classList.add('hidden')
-            } else if (senha === "friends") {
-                jogosAtuais = jogosFriends;
-                errorMessage.classList.add("hidden");
-                listHiae.classList.add("hidden");
-                listFriends.classList.remove('hidden')
-            } else {
-                errorMessage.classList.remove("hidden");
-                return;
-            }
-            
-            document.getElementById("passwordScreen").classList.add("hidden");
-            document.getElementById("gameScreen").classList.remove("hidden");
-            renderTable();
+      document.getElementById("passwordScreen").classList.add("hidden");
+      document.getElementById("gameScreen").classList.remove("hidden");
+      renderTable();
+    }
+
+    function renderTable() {
+      const tableBody = document.getElementById("mockedGamesBody");
+      tableBody.innerHTML = '';
+
+      jogosAtuais.forEach(game => {
+        const row = `<tr>
+          <td>${game.id}</td>
+          <td>${game.name}</td>
+          ${Array.from({ length: 14 }).map((_, idx) => {
+            const n = game.numbers[idx];
+            return n !== undefined ? `<td>${n}</td>` : `<td></td>`;
+          }).join('')}
+        </tr>`;
+        tableBody.innerHTML += row;
+      });
+    }
+
+    function verificarNumeros() {
+      const inputs = [];
+      for (let i = 1; i <= 14; i++) {
+        const val = parseInt(document.getElementById(`num${i}`).value);
+        if (!isNaN(val)) inputs.push(val);
+      }
+
+      const resultBody = document.getElementById("resultBody");
+      const resultTable = document.getElementById("resultTable");
+
+      resultBody.innerHTML = '';
+      resultTable.classList.add("hidden");
+
+      let encontrouAcertos = false;
+
+      jogosAtuais.forEach(game => {
+        const matches = game.numbers.filter(num => inputs.includes(num));
+        if (matches.length >= 4) {
+          encontrouAcertos = true;
+          const row = `<tr>
+            <td>${game.id}</td>
+            <td>${game.name}</td>
+            ${Array.from({ length: 14 }).map((_, idx) => {
+              const n = game.numbers[idx];
+              return n !== undefined
+                ? `<td class="${inputs.includes(n) ? 'hit' : ''}">${n}</td>`
+                : '<td></td>';
+            }).join('')}
+          </tr>`;
+          resultBody.innerHTML += row;
         }
+      });
 
-        function renderTable() {
-            const tableBody = document.getElementById("mockedGamesBody");
-            tableBody.innerHTML = '';
+      if (encontrouAcertos) {
+        resultTable.classList.remove("hidden");
+      }
 
-            jogosAtuais.forEach(game => {
-                const row = `<tr>
-                    <td>${game.id}</td>
-                    <td>${game.name}</td>
-                    ${game.numbers.map(num => `<td>${num}</td>`).join('')}
-                </tr>`;
-                tableBody.innerHTML += row;
-            });
-        }
-
-        function verificarNumeros() {
-            const inputs = Array.from({ length: 6 }, (_, i) =>
-                parseInt(document.getElementById(`num${i + 1}`).value)
-            );
-
-            const resultBody = document.getElementById("resultBody");
-            const resultTable = document.getElementById("resultTable");
-
-            resultBody.innerHTML = '';
-            resultTable.classList.add("hidden");
-
-            let encontrouAcertos = false;
-
-            jogosAtuais.forEach(game => {
-                const matches = game.numbers.filter(num => inputs.includes(num));
-                if (matches.length >= 4) {
-                    encontrouAcertos = true;
-                    const row = `<tr>
-                        <td>${game.id}</td>
-                        <td>${game.name}</td>
-                        ${game.numbers.map(num => `<td class="${inputs.includes(num) ? 'hit' : ''}">${num}</td>`).join('')}
-                    </tr>`;
-                    resultBody.innerHTML += row;
-                }
-            });
-
-            if (encontrouAcertos) {
-                resultTable.classList.remove("hidden");
-            }
-
-            document.querySelectorAll("#mockedGamesBody tr").forEach(row => {
-                const cells = row.querySelectorAll("td:nth-child(n+3)");
-
-                cells.forEach(cell => {
-                    cell.classList.remove("hit");
-                    if (inputs.includes(parseInt(cell.innerText))) {
-                        cell.classList.add("hit");
-                    }
-                });
-            });
-        }
-    </script>
+      document.querySelectorAll("#mockedGamesBody tr").forEach(row => {
+        const cells = row.querySelectorAll("td:nth-child(n+3)");
+        cells.forEach(cell => {
+          cell.classList.remove("hit");
+          const num = parseInt(cell.innerText);
+          if (!isNaN(num) && inputs.includes(num)) {
+            cell.classList.add("hit");
+          }
+        });
+      });
+    }
+  </script>
 </body>
 </html>
