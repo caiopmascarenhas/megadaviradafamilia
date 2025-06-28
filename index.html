@@ -118,7 +118,7 @@
   </div>
 
   <script>
-    const jogosGloria = [
+   const jogosGloria = [
             { id: 1, name: "Jogo 1", numbers: [10, 16, 21, 30, 34, 63] },
   { id: 2, name: "Jogo 2", numbers: [25, 30, 33, 50, 54, 55, 77] },
   { id: 3, name: "Jogo 3", numbers: [19, 20, 21, 37, 42, 57, 68] },
@@ -155,6 +155,7 @@
   { id: 34, name: "Jogo 34", numbers: [13, 25, 61, 64, 71] },
   { id: 35, name: "Jogo 35", numbers: [12, 24, 35, 36, 53] },
         ];
+
 
  const jogosEinstein = [
             { id: 1, name: "Jogo 1", numbers: [10, 15, 26, 43, 77] },
@@ -222,16 +223,6 @@
 
     let jogosAtuais = [];
 
-    const inputsContainer = document.getElementById("inputsContainer");
-    for (let i = 1; i <= 14; i++) {
-      const input = document.createElement("input");
-      input.type = "number";
-      input.id = `num${i}`;
-      input.min = 1;
-      input.max = 80;
-      inputsContainer.appendChild(input);
-    }
-
     function verificarSenha() {
       const senha = document.getElementById("passwordInput").value;
       const errorMessage = document.getElementById("errorMessage");
@@ -240,8 +231,6 @@
 
       document.getElementById("resultBody").innerHTML = '';
       document.getElementById("resultTable").classList.add("hidden");
-
-      document.querySelectorAll("#inputsContainer input").forEach(input => input.value = '');
 
       if (senha === "familia") {
         jogosAtuais = jogosGloria;
@@ -265,7 +254,24 @@
 
       document.getElementById("passwordScreen").classList.add("hidden");
       document.getElementById("gameScreen").classList.remove("hidden");
+      renderInputs();
       renderTable();
+    }
+
+    function renderInputs() {
+      const inputsContainer = document.getElementById("inputsContainer");
+      inputsContainer.innerHTML = '';
+
+      const maxCols = jogosAtuais.reduce((max, game) => Math.max(max, game.numbers.length), 0);
+
+      for (let i = 1; i <= maxCols; i++) {
+        const input = document.createElement("input");
+        input.type = "number";
+        input.id = `num${i}`;
+        input.min = 1;
+        input.max = 80;
+        inputsContainer.appendChild(input);
+      }
     }
 
     function renderTable() {
@@ -300,10 +306,11 @@
 
     function verificarNumeros() {
       const inputs = [];
-      for (let i = 1; i <= 14; i++) {
-        const val = parseInt(document.getElementById(`num${i}`).value);
+      const inputsElements = document.querySelectorAll("#inputsContainer input");
+      inputsElements.forEach(input => {
+        const val = parseInt(input.value);
         if (!isNaN(val)) inputs.push(val);
-      }
+      });
 
       const maxCols = jogosAtuais.reduce((max, game) => Math.max(max, game.numbers.length), 0);
 
