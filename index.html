@@ -107,36 +107,18 @@
 
     <h2>Resultados</h2>
     <table id="resultTable" class="hidden">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Nome</th>
-          <th>Número 1</th><th>Número 2</th><th>Número 3</th><th>Número 4</th>
-          <th>Número 5</th><th>Número 6</th><th>Número 7</th><th>Número 8</th>
-          <th>Número 9</th><th>Número 10</th><th>Número 11</th><th>Número 12</th>
-          <th>Número 13</th><th>Número 14</th>
-        </tr>
-      </thead>
+      <thead id="resultHeader"></thead>
       <tbody id="resultBody"></tbody>
     </table>
 
     <table id="mockedGamesTable">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Nome</th>
-          <th>Número 1</th><th>Número 2</th><th>Número 3</th><th>Número 4</th>
-          <th>Número 5</th><th>Número 6</th><th>Número 7</th><th>Número 8</th>
-          <th>Número 9</th><th>Número 10</th><th>Número 11</th><th>Número 12</th>
-          <th>Número 13</th><th>Número 14</th>
-        </tr>
-      </thead>
+      <thead id="mockedHeader"></thead>
       <tbody id="mockedGamesBody"></tbody>
     </table>
   </div>
 
   <script>
- const jogosGloria = [
+    const jogosGloria = [
             { id: 1, name: "Jogo 1", numbers: [10, 16, 21, 30, 34, 63] },
   { id: 2, name: "Jogo 2", numbers: [25, 30, 33, 50, 54, 55, 77] },
   { id: 3, name: "Jogo 3", numbers: [19, 20, 21, 37, 42, 57, 68] },
@@ -173,7 +155,8 @@
   { id: 34, name: "Jogo 34", numbers: [13, 25, 61, 64, 71] },
   { id: 35, name: "Jogo 35", numbers: [12, 24, 35, 36, 53] },
         ];
-  const jogosEinstein = [
+
+ const jogosEinstein = [
             { id: 1, name: "Jogo 1", numbers: [10, 15, 26, 43, 77] },
   { id: 2, name: "Jogo 2", numbers: [14, 15, 44, 74, 79] },
   { id: 3, name: "Jogo 3", numbers: [26, 33, 59, 61, 69] },
@@ -286,19 +269,32 @@
     }
 
     function renderTable() {
-      const tableBody = document.getElementById("mockedGamesBody");
-      tableBody.innerHTML = '';
+      const maxCols = jogosAtuais.reduce((max, game) => Math.max(max, game.numbers.length), 0);
+
+      const headerCells = `
+        <tr>
+          <th>Id</th>
+          <th>Nome</th>
+          ${Array.from({ length: maxCols }).map((_, i) => `<th>Número ${i + 1}</th>`).join('')}
+        </tr>
+      `;
+
+      document.getElementById("mockedHeader").innerHTML = headerCells;
+      document.getElementById("resultHeader").innerHTML = headerCells;
+
+      const mockedBody = document.getElementById("mockedGamesBody");
+      mockedBody.innerHTML = '';
 
       jogosAtuais.forEach(game => {
         const row = `<tr>
           <td>${game.id}</td>
           <td>${game.name}</td>
-          ${Array.from({ length: 14 }).map((_, idx) => {
+          ${Array.from({ length: maxCols }).map((_, idx) => {
             const n = game.numbers[idx];
             return n !== undefined ? `<td>${n}</td>` : `<td></td>`;
           }).join('')}
         </tr>`;
-        tableBody.innerHTML += row;
+        mockedBody.innerHTML += row;
       });
     }
 
@@ -308,6 +304,8 @@
         const val = parseInt(document.getElementById(`num${i}`).value);
         if (!isNaN(val)) inputs.push(val);
       }
+
+      const maxCols = jogosAtuais.reduce((max, game) => Math.max(max, game.numbers.length), 0);
 
       const resultBody = document.getElementById("resultBody");
       const resultTable = document.getElementById("resultTable");
@@ -324,7 +322,7 @@
           const row = `<tr>
             <td>${game.id}</td>
             <td>${game.name}</td>
-            ${Array.from({ length: 14 }).map((_, idx) => {
+            ${Array.from({ length: maxCols }).map((_, idx) => {
               const n = game.numbers[idx];
               return n !== undefined
                 ? `<td class="${inputs.includes(n) ? 'hit' : ''}">${n}</td>`
