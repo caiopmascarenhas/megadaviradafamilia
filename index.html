@@ -111,7 +111,10 @@
         <tr>
           <th>Id</th>
           <th>Nome</th>
-          ${Array.from({ length: 14 }).map((_, i) => `<th>Número ${i + 1}</th>`).join('')}
+          <th>Número 1</th><th>Número 2</th><th>Número 3</th><th>Número 4</th>
+          <th>Número 5</th><th>Número 6</th><th>Número 7</th><th>Número 8</th>
+          <th>Número 9</th><th>Número 10</th><th>Número 11</th><th>Número 12</th>
+          <th>Número 13</th><th>Número 14</th>
         </tr>
       </thead>
       <tbody id="resultBody"></tbody>
@@ -122,7 +125,10 @@
         <tr>
           <th>Id</th>
           <th>Nome</th>
-          ${Array.from({ length: 14 }).map((_, i) => `<th>Número ${i + 1}</th>`).join('')}
+          <th>Número 1</th><th>Número 2</th><th>Número 3</th><th>Número 4</th>
+          <th>Número 5</th><th>Número 6</th><th>Número 7</th><th>Número 8</th>
+          <th>Número 9</th><th>Número 10</th><th>Número 11</th><th>Número 12</th>
+          <th>Número 13</th><th>Número 14</th>
         </tr>
       </thead>
       <tbody id="mockedGamesBody"></tbody>
@@ -130,7 +136,7 @@
   </div>
 
   <script>
-const jogosGloria = [
+ const jogosGloria = [
             { id: 1, name: "Jogo 1", numbers: [0, 16, 21, 30, 34, 63] },
   { id: 2, name: "Jogo 2", numbers: [25, 30, 33, 50, 54, 55, 77] },
   { id: 3, name: "Jogo 3", numbers: [19, 20, 21, 37, 42, 57, 68] },
@@ -167,8 +173,7 @@ const jogosGloria = [
   { id: 34, name: "Jogo 34", numbers: [13, 25, 61, 64, 71] },
   { id: 35, name: "Jogo 35", numbers: [12, 24, 35, 36, 53] },
         ];
-
-      const jogosEinstein = [
+  const jogosEinstein = [
             { id: 1, name: "Jogo 1", numbers: [10, 15, 26, 43, 77] },
   { id: 2, name: "Jogo 2", numbers: [14, 15, 44, 74, 79] },
   { id: 3, name: "Jogo 3", numbers: [26, 33, 59, 61, 69] },
@@ -230,11 +235,10 @@ const jogosGloria = [
   { id: 59, name: "Jogo 59", numbers: [5, 6, 53, 66, 80] },
   { id: 60, name: "Jogo 60", numbers: [14, 31, 46, 51, 52] },
         ];
-    const jogosFriends = []; // Se quiser, preencha
+    const jogosFriends = [];
 
     let jogosAtuais = [];
 
-    // Criar os 14 inputs
     const inputsContainer = document.getElementById("inputsContainer");
     for (let i = 1; i <= 14; i++) {
       const input = document.createElement("input");
